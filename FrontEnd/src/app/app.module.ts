@@ -20,6 +20,10 @@ import { LoginComponent } from './components/login/login.component';
 import { interceptorProvider } from './service/interceptor-service';
 import { NewExperienciaComponent } from './components/experiencia/new-experiencia.component';
 import { EditExperienciaComponent } from './components/experiencia/edit-experiencia.component';
+import { NeweducacionComponent } from './components/educacion/neweducacion.component';
+import { EditeducacionComponent } from './components/educacion/editeducacion.component';
+import { EditSkillComponent } from './components/hyss/edit-skill.component';
+import { NewSkillComponent } from './components/hyss/new-skill.component';
 
 
 @NgModule({
@@ -37,7 +41,11 @@ import { EditExperienciaComponent } from './components/experiencia/edit-experien
     HomeComponent,
     LoginComponent,
     NewExperienciaComponent,
-    EditExperienciaComponent
+    EditExperienciaComponent,
+    NeweducacionComponent,
+    EditeducacionComponent,
+    EditSkillComponent,
+    NewSkillComponent
     
   ],
   imports: [

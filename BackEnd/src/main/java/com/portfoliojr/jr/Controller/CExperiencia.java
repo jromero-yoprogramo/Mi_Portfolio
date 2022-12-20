@@ -35,9 +35,9 @@ public class CExperiencia {
 
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoExperiencia dtoexp) {
-        if (StringUtils.isBlank(dtoexp.getNombreE())) {
-            return new ResponseEntity(new Mensaje("El nomnbre es obligatorio"), HttpStatus.BAD_REQUEST);
-        }
+        if (StringUtils.isBlank(dtoexp.getNombreE())) 
+            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+        
 
         if (sExperiencia.existsByNombreE(dtoexp.getNombreE())) {
             return new ResponseEntity(new Mensaje("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
@@ -52,7 +52,7 @@ public class CExperiencia {
     @GetMapping("/detail/{id}")
     public ResponseEntity<Experiencia> getById(@PathVariable("id") int id) {
         if (!sExperiencia.existsById(id)) 
-            return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+            return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
         
         Experiencia experiencia = sExperiencia.getOne(id).get();
         return new ResponseEntity(experiencia, HttpStatus.OK);
@@ -78,7 +78,7 @@ public class CExperiencia {
         experiencia.setDescripcionE(dtoexp.getDescripcionE());
 
         sExperiencia.save(experiencia);
-        return new ResponseEntity(new Mensaje("La experiencia se ha actualizado"), HttpStatus.OK);
+            return new ResponseEntity(new Mensaje("La experiencia se ha actualizado"), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
