@@ -24,6 +24,8 @@ import { NeweducacionComponent } from './components/educacion/neweducacion.compo
 import { EditeducacionComponent } from './components/educacion/editeducacion.component';
 import { EditSkillComponent } from './components/hyss/edit-skill.component';
 import { NewSkillComponent } from './components/hyss/new-skill.component';
+import { EditacercaDeComponent } from './components/acerca-de/editacerca-de.component';
+
 
 
 @NgModule({
@@ -45,19 +47,28 @@ import { NewSkillComponent } from './components/hyss/new-skill.component';
     NeweducacionComponent,
     EditeducacionComponent,
     EditSkillComponent,
-    NewSkillComponent
+    NewSkillComponent,
+    EditacercaDeComponent,
     
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgCircleProgressModule.forRoot({}),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+  
   ],
   providers: [
-    interceptorProvider
+    interceptorProvider,
+    
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
+
+
+
+

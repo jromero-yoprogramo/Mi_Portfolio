@@ -10,12 +10,18 @@ div{
 /*estilo de la foto de perfil*/
 @media(min-width: 576px){
     #foto-de-perfil{
-        position: absolute;
-        width: 15%;
         border-radius: 100%;
-        box-shadow: 3px 3px 3px grey;
-        left: 2%;
-        top: 600px;
+        box-shadow: 3px 3px 3px grey;  
+    }
+
+    .descripcion{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-primary{
+        width: 100%;
     }
 }
 
