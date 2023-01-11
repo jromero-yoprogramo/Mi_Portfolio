@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
@@ -25,8 +25,8 @@ import { EditeducacionComponent } from './components/educacion/editeducacion.com
 import { EditSkillComponent } from './components/hyss/edit-skill.component';
 import { NewSkillComponent } from './components/hyss/new-skill.component';
 import { EditacercaDeComponent } from './components/acerca-de/editacerca-de.component';
-
-
+import { NewproyectoComponent } from './components/proyecto/newproyecto.component';
+import { EditproyectoComponent } from './components/proyecto/editproyecto.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,8 @@ import { EditacercaDeComponent } from './components/acerca-de/editacerca-de.comp
     EditSkillComponent,
     NewSkillComponent,
     EditacercaDeComponent,
-    
+    NewproyectoComponent,
+    EditproyectoComponent,
   ],
 
   imports: [
@@ -58,11 +59,17 @@ import { EditacercaDeComponent } from './components/acerca-de/editacerca-de.comp
     NgCircleProgressModule.forRoot({}),
     HttpClientModule,
     FormsModule,
-  
+   
+
   ],
+
+
+
+
+
   providers: [
-    interceptorProvider,
-    
+    interceptorProvider, 
+
   ],
   bootstrap: [AppComponent]
 })

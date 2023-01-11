@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div>
+            <form (ngSubmit)="uploadImage()" novalidate #f="ngForm">
+                <div class="form group">
+                    <label for="nombreP">Nombre del Proyecto</label>
+                    <input type="text" class="form-control" id="nombreP" name="nombreP" [(ngModel)]="nombreP" required>
+                </div>
+                <div class="form group">
+                    <label for="descripcionP">Descripcion del proyecto</label>
+                    <input type="text" class="form-control" id="descripcionP" name="descripcionP" [(ngModel)]="descripcionP" required>
+                </div>
+                <div class="form group">
+                    <label for="img">Imagen</label>
+                    <input type="file" class="form-control" id="imgP" name="imgP" [(ngModel)]="imgP" (change)="newImagenUpload($event)"
+                    accept=".jpg, .jpeg, .png">
+                </div>
+                <div class="imagen">
+                    <img [src]="imagenProyectoService.newImage" width="200px">
+                </div>
+                <div class="col-sm-11 col-md-11 col-lg-11">
+                <button class="btn btn-primary" [disabled]="loading">
+                    {{(loading) ? 'Agregando Proyecto...' : 'Agregar proyecto'}}
+                </button>
+                
+                <button class="btn btn-dark" (click)="cancel()">
+                    Cancelar
+                </button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+

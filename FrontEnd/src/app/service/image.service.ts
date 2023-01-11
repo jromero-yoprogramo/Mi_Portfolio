@@ -1,6 +1,5 @@
 
 import { Injectable } from '@angular/core';
-/*import { Storage, ref, uploadBytes, list, getDownloadURL } from '@angular/fire/storage';*/
 import { async } from 'rxjs';
 import { getStorage, ref, uploadBytes } from 'firebase/storage';
 import { initializeApp } from "firebase/app";
@@ -12,7 +11,7 @@ import { list, getDownloadURL } from 'firebase/storage';
 export class ImageService {
   url: string = "";
 
-  constructor(/*private storage: Storage*/) { }
+  constructor() { }
 
   public uploadImage($event: any, name: string) {
     const file = $event.target.files[0];

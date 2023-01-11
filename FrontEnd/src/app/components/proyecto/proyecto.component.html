@@ -1,12 +1,35 @@
 <div class="row">
-    <h1>Proyectos realizados</h1>
-    <div class="contenedor">
-        <div class="col-sm-12 col-md-7 col-lg-7 parte1">
-            <h1>Proyecto 1</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae optio quas tempora, quis illo obcaecati omnis repellat doloribus, ipsum porro excepturi, similique possimus nulla exercitationem unde rerum deleniti rem aliquid.</p>
-        </div>
-        <div class="col-sm-12 col-md-3 col-lg-3 offset-md-1 offset-lg-1 parte2">
-            <img src="../../../assets/proyecto.png" class="img-fluid img-proyecto">
-        </div>
+    <h1>Proyectos</h1>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+        <button type="button" class="btn btn-primary" routerLink="/nuevoproy" *ngIf="isLogged">
+            Agregar proyecto
+        </button>
     </div>
+
+    <div class="col-sm-1 col-md-1 col-lg-1"></div>
+    <div class="col-sm-11 col-md-11 col-lg-11">
+        <table class="table">
+            <tbody>
+                <tr *ngFor="let proyec of proyecto">
+                    <td>
+                        <h2>{{proyec.nombreP}}</h2>
+                    </td>
+                    <td>{{proyec.descripcionP}}</td>
+                    <td>
+                        <img src={{proyec.imgP}} class="img-fluid" id="foto-de-proyecto">
+                    </td>
+                    
+                    <td *ngIf="isLogged">
+                        <button class="btn btn-secondary" routerLink="editproy/{{proyec.id}}">
+                            <i class="bi bi-pencil"></i>EDITAR</button>
+                    </td>
+                    <td *ngIf="isLogged">
+                        <button class="btn btn-danger" (click)="delete(proyec.id); borrarImagen(proyec)">
+                            <i class="bi bi-trash3-fill"></i>BORRAR</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>
