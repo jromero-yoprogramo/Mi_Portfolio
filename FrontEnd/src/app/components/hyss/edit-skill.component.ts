@@ -39,4 +39,9 @@ export class EditSkillComponent implements OnInit{
     )
   }
 
+  cancel() {
+    alert("Se ha cancelado la edición de la skill");
+    this.router.navigate(['']);
+  }
+
 }

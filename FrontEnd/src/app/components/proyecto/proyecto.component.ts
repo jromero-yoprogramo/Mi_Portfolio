@@ -12,7 +12,7 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class ProyectoComponent implements OnInit {
  
-  proyecto: Proyecto[] = [];
+  proyec: Proyecto[] = [];
  
   constructor(private proyectoS: ProyectoService,
     private tokenService: TokenService,
@@ -34,7 +34,7 @@ export class ProyectoComponent implements OnInit {
   cargarProyecto(): void {
     this.proyectoS.lista().subscribe(
       data => {
-        this.proyecto = data;
+        this.proyec = data;
       }
     )
 
@@ -57,10 +57,10 @@ export class ProyectoComponent implements OnInit {
   }
 
   
-  borrarImagen(proyec: Proyecto){
+  borrarImagen(proyecto: Proyecto){
     
   
-   this.imagenProyectoService.borrarImagen(proyec);
+   this.imagenProyectoService.borrarImagen(proyecto);
 
   }
 

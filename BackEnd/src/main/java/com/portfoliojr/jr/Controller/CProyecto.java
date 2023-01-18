@@ -54,11 +54,21 @@ public class CProyecto {
 
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoProyecto dtoproyecto) {
+         //Para que el nombreP no este vacío(no puede estar vacío)
         if (StringUtils.isBlank(dtoproyecto.getNombreP())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
+        //Para validad si existe el nombreP
         if (sProyecto.existsByNombreP(dtoproyecto.getNombreP())) {
             return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
+        }
+         //Para que la descripcionP no este vacío(no puede estar vacío)
+        if (StringUtils.isBlank(dtoproyecto.getDescripcionP())) {
+            return new ResponseEntity(new Mensaje("La descripcion es obligatoria"), HttpStatus.BAD_REQUEST);
+        }
+        //Para que la imgP no este vacío(no puede estar vacío)
+        if (StringUtils.isBlank(dtoproyecto.getImgP())) {
+            return new ResponseEntity(new Mensaje("La imagen es obligatoria"), HttpStatus.BAD_REQUEST);
         }
 
         Proyecto proyecto = new Proyecto(dtoproyecto.getNombreP(), dtoproyecto.getDescripcionP(), dtoproyecto.getImgP());
@@ -80,6 +90,10 @@ public class CProyecto {
         //Para que el nombre no este vacío(no puede estar vacío)
         if (StringUtils.isBlank(dtoproyecto.getNombreP())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+        //Para que la descripcion no este vacía(no puede estar vacío)
+        if (StringUtils.isBlank(dtoproyecto.getDescripcionP())) {
+            return new ResponseEntity(new Mensaje("La descripcion es obligatoria"), HttpStatus.BAD_REQUEST);
         }
         //Para actualizar la educacion
         Proyecto proyecto = sProyecto.getOne(id).get();

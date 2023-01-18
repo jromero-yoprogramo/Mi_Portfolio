@@ -1,11 +1,16 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { getDownloadURL, ref, uploadBytes, uploadBytesResumable } from 'firebase/storage';
-import { finalize, of } from 'rxjs';
+import { deleteObject, getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { Proyecto } from 'src/app/model/proyecto';
 import { FirebaseService } from 'src/app/service/firebase';
 import { ImagenProyectoService } from 'src/app/service/imagen-proyecto.service';
 import { ProyectoService } from 'src/app/service/proyecto.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+
+
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,36 +22,50 @@ import { ProyectoService } from 'src/app/service/proyecto.service';
 })
 export class NewproyectoComponent implements OnInit {
 
+
   loading: boolean;
   url: string;
   nombreP: string;
   descripcionP: string;
   imgP: string;
+  newImage: string
+  newFile: any
+
 
   constructor(private proyectoS: ProyectoService, private activatedRouter: ActivatedRoute,
     private router: Router,
     public imagenProyectoService: ImagenProyectoService,
-    public firebase: FirebaseService
+    public firebase: FirebaseService,
+
   ) {
+    this.url = ""
+    this.newImage = ""
 
   }
+
+
+  public nom = new FormControl('', Validators.required);
+  public des = new FormControl('', Validators.required);
+  public im = new FormControl('', Validators.required);
+
+  public newForm = new FormGroup({
+    nom: this.nom,
+    des: this.des,
+    im: this.im,
+
+  });
+
 
   ngOnInit() {
-    this.imagenProyectoService.url = ""
-    this.imagenProyectoService.newImage = ""
 
+    this.imagenProyectoService.newImage = this.newImage
+   
 
   }
 
+  
 
-  /*onCreate() {
-    this.uploadImage()
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve(this.onCreatebis());
-      }, 2000);
-    });
-  }*/
+
 
   newImagenUpload($event: any) {
 
@@ -56,6 +75,7 @@ export class NewproyectoComponent implements OnInit {
   }
 
   uploadImage() {
+
     this.loading = true;
     const id = Math.random().toString(36).substring(2);
     const name = "proyecto_" + id;
@@ -88,6 +108,7 @@ export class NewproyectoComponent implements OnInit {
           .then((url) => {
             console.log('La URL es: ' + url);
             this.url = url;
+
             this.onCreate()
             this.loading = false;
           })
@@ -102,25 +123,23 @@ export class NewproyectoComponent implements OnInit {
 
 
 
-  /* uploadImage() {
-     const id = Math.random().toString(36).substring(2);
-     const name = "proyecto_" + id;
-     console.log(name);
-     this.imagenProyectoService.uploadImage(name);
- 
-   }*/
+
 
   onCreate() {
-
+    this.descripcionP = this.newForm.value.des
+    this.nombreP = this.newForm.value.nom
+    this.imgP = this.newForm.value.im
 
     const proyecto = new Proyecto(this.nombreP, this.descripcionP, this.url/*this.imagenProyectoService.url*/);
-
+    
     this.proyectoS.save(proyecto).subscribe(
       data => {
         alert("Proyecto añadido correctamente");
+
         this.router.navigate(['']);
       }, err => {
-        alert("Falló");
+        this.borrarImagen()
+        alert("Fallo al añadir el proyecto");
         this.router.navigate(['']);
       }
     )
@@ -128,7 +147,30 @@ export class NewproyectoComponent implements OnInit {
   }
 
   cancel() {
+    alert("Se ha cancelado el agregado de el proyecto");
     this.router.navigate(['']);
   }
 
+
+
+
+
+
+
+  borrarImagen() {
+
+    const httpsReference = ref(this.firebase.storage, this.url);
+
+
+    // Delete the file (image) in firebase
+    deleteObject(httpsReference).then(() => {
+      console.log("imagen de proyecto borrada correctamente")
+    }).catch((error) => {
+      console.log(error)
+    });
+
+  }
+
 }
+
+

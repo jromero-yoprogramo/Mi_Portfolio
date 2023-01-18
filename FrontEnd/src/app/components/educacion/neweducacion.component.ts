@@ -31,4 +31,9 @@ export class NeweducacionComponent implements OnInit{
     )
   }
 
+  cancel() {
+    alert("Se ha cancelado el agreagado de la educación");
+    this.router.navigate(['']);
+  }
+
 }

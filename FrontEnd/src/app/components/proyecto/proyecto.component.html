@@ -10,21 +10,21 @@
     <div class="col-sm-11 col-md-11 col-lg-11">
         <table class="table">
             <tbody>
-                <tr *ngFor="let proyec of proyecto">
+                <tr *ngFor="let proyecto of proyec">
                     <td>
-                        <h2>{{proyec.nombreP}}</h2>
+                        <h2>{{proyecto.nombreP}}</h2>
                     </td>
-                    <td>{{proyec.descripcionP}}</td>
+                    <td>{{proyecto.descripcionP}}</td>
                     <td>
-                        <img src={{proyec.imgP}} class="img-fluid" id="foto-de-proyecto">
+                        <img src={{proyecto.imgP}} class="img-fluid" id="foto-de-proyecto">
                     </td>
                     
                     <td *ngIf="isLogged">
-                        <button class="btn btn-secondary" routerLink="editproy/{{proyec.id}}">
+                        <button class="btn btn-secondary" routerLink="editproy/{{proyecto.id}}">
                             <i class="bi bi-pencil"></i>EDITAR</button>
                     </td>
                     <td *ngIf="isLogged">
-                        <button class="btn btn-danger" (click)="delete(proyec.id); borrarImagen(proyec)">
+                        <button class="btn btn-danger" (click)="delete(proyecto.id); borrarImagen(proyecto)">
                             <i class="bi bi-trash3-fill"></i>BORRAR</button>
                     </td>
                 </tr>

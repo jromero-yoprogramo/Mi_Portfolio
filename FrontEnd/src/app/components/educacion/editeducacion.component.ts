@@ -41,4 +41,9 @@ export class EditeducacionComponent implements OnInit{
     )
   }
 
+  cancel() {
+    alert("Se ha cancelado la edición de la educación");
+    this.router.navigate(['']);
+  }
+
 }

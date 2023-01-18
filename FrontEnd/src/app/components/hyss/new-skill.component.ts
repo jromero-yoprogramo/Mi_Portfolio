@@ -32,4 +32,9 @@ export class NewSkillComponent implements OnInit {
     )
   }
 
+  cancel() {
+    alert("Se ha cancelado el agregado de una skill");
+    this.router.navigate(['']);
+  }
+
 }

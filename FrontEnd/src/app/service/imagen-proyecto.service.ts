@@ -10,12 +10,12 @@ import { FirebaseService } from 'src/app/service/firebase';
   providedIn: 'root'
 })
 export class ImagenProyectoService implements OnInit {
-  url: string = "";
+  /*url: string = "";*/
   newImage = "";
   newFile: any
   name: any;
   constructor(public firebase: FirebaseService) {
-
+    this.newFile = null
 
   }
 
@@ -43,7 +43,7 @@ export class ImagenProyectoService implements OnInit {
 
 
 
-  uploadImage(name: string){
+  /*uploadImage(name: string){
 
     const file = this.newFile
     const storageRef = ref(this.firebase.storage, `imagenProyecto/${name}`)
@@ -82,19 +82,19 @@ export class ImagenProyectoService implements OnInit {
 
       }),
       (error: any) => console.log(error);
-  }
+  }*/
 
 
 
 
-  borrarImagen(proyec: Proyecto) {
+  borrarImagen(proyecto: Proyecto) {
 
-    const httpsReference = ref(this.firebase.storage, proyec.imgP);
+    const httpsReference = ref(this.firebase.storage, proyecto.imgP);
 
 
     // Delete the file 
     deleteObject(httpsReference).then(() => {
-      console.log("imagen borrada correctamente")
+      console.log("Proyecto borrado correctamente")
     }).catch((error) => {
       console.log(error)
     });

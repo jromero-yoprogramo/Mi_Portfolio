@@ -31,4 +31,9 @@ export class NewExperienciaComponent implements OnInit{
     )
   }
 
+  cancel() {
+    alert("Se ha cancelado el agregado de una experiencia");
+    this.router.navigate(['']);
+  }
+
 }

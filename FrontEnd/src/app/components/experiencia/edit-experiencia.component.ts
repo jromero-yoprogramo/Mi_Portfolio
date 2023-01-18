@@ -38,4 +38,9 @@ export class EditExperienciaComponent implements OnInit {
     )
   }
 
+  cancel() {
+    alert("Se ha cancelado la edición de la experiencia");
+    this.router.navigate(['']);
+  }
+
 }
