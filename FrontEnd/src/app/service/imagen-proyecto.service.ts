@@ -12,7 +12,7 @@ import { FirebaseService } from 'src/app/service/firebase';
 export class ImagenProyectoService implements OnInit {
   /*url: string = "";*/
   newImage = "";
-  newFile: any
+  newFile: any;
   name: any;
   constructor(public firebase: FirebaseService) {
     this.newFile = null

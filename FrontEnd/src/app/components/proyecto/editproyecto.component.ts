@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import { deleteObject, getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { Proyecto } from 'src/app/model/proyecto';
 import { FirebaseService } from 'src/app/service/firebase';
 import { ImagenProyectoService } from 'src/app/service/imagen-proyecto.service';
 import { ProyectoService } from 'src/app/service/proyecto.service';
+
 
 @Component({
   selector: 'app-editproyecto',
@@ -19,22 +20,23 @@ export class EditproyectoComponent implements OnInit {
   url: string;
   actFile: any;
   actImage: string
-
-
+  disa: boolean
+  
   constructor(private activatedRouter: ActivatedRoute, private proyectoS: ProyectoService,
     private router: Router,
     public imagenProyectoService: ImagenProyectoService,
-    public firebase: FirebaseService) { }
+    public firebase: FirebaseService) {}
 
-  //public nom = new FormControl('', Validators.required);
-  //public des = new FormControl('', Validators.required);
+  
+  public nom = new FormControl('', Validators.required);
+  public des = new FormControl('' , Validators.required)
   public im = new FormControl('', Validators.required);
 
   public newForm = new FormGroup({
-    //nom: this.nom,
-    //des: this.des,
+    nom: this.nom,
+    des: this.des,
     im: this.im
-
+    
   });
 
 
@@ -42,7 +44,7 @@ export class EditproyectoComponent implements OnInit {
     this.actImage = ""
     
     const id = this.activatedRouter.snapshot.params['id'];
-
+    
     this.proyectoS.detail(id).subscribe(
       data => {
         this.proyecto = data;
@@ -53,17 +55,20 @@ export class EditproyectoComponent implements OnInit {
     )
   }
 
+  
 
   onUpdate(): void {
     const id = this.activatedRouter.snapshot.params['id'];
-   
+
     this.proyecto.imgP = this.url
     this.proyectoS.update(id, this.proyecto).subscribe(
       data => {
+        console.timeEnd()
         alert("Proyecto actualizado correctamente");
         this.router.navigate(['']);
       }, err => {
         alert("Error al modificar el proyecto");
+        
         this.router.navigate(['']);
       }
     )
@@ -80,14 +85,27 @@ export class EditproyectoComponent implements OnInit {
       reader.readAsDataURL($event.target.files[0]);
     }
     console.log(this.actFile)
-
+    this.disa = true;
   }
 
-  uploadImage() {
+  
+  
 
+
+  uploadImage() {
+       
     this.loading = true;
+   /* const id = Math.random().toString(36).substring(2);
+    const name = "proyecto_" + id;
+    console.log(name);*/
     const file = this.actFile
     const storageRef = ref(this.firebase.storage, this.proyecto.imgP)
+
+    
+    
+  
+    //const storageRef = ref(this.firebase.storage, `imagenProyecto/${name}`);
+
 
     const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -131,5 +149,37 @@ export class EditproyectoComponent implements OnInit {
     alert("Se ha cancelado la edición de el proyecto");
     this.router.navigate(['']);
   }
+
+  borrarImagen() {
+
+    const httpsReference = ref(this.firebase.storage, this.proyecto.imgP);
+
+
+    // Delete the file (image) in firebase
+    deleteObject(httpsReference).then(() => {
+      console.log("imagen de proyecto borrada correctamente")
+      this.uploadImage()
+    }).catch((error) => {
+      console.log(error)
+    });
+
+  }
+
+
+  comprobar(): void {
+    console.time()
+    const id = this.activatedRouter.snapshot.params['id'];
+
+    this.proyectoS.update(id, this.proyecto).subscribe(
+      data => {
+        this.borrarImagen()
+      }, err => {
+        alert("Error al modificar el proyecto");
+        
+        this.router.navigate(['']);
+      }
+    )
+  }
+
 
 }

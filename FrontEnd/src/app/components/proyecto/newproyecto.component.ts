@@ -81,7 +81,8 @@ export class NewproyectoComponent implements OnInit {
     const name = "proyecto_" + id;
     console.log(name);
     const file = this.imagenProyectoService.newFile
-    const storageRef = ref(this.firebase.storage, `imagenProyecto/${name}`)
+  
+    const storageRef = ref(this.firebase.storage, `imagenProyecto/${name}`);
 
     const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -100,6 +101,7 @@ export class NewproyectoComponent implements OnInit {
     },
       (error) => {
         console.log('Error al cargar imagen')
+        this.loading = false;
       },
       () => {
         console.log('imagen de proyecto subida')

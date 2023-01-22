@@ -95,7 +95,12 @@ public class CProyecto {
         if (StringUtils.isBlank(dtoproyecto.getDescripcionP())) {
             return new ResponseEntity(new Mensaje("La descripcion es obligatoria"), HttpStatus.BAD_REQUEST);
         }
-        //Para actualizar la educacion
+         //Para que la imgP no este vacío(no puede estar vacío)
+        if (StringUtils.isBlank(dtoproyecto.getImgP())) {
+            return new ResponseEntity(new Mensaje("La imagen es obligatoria"), HttpStatus.BAD_REQUEST);
+        }
+      
+        //Para actualizar el proyecto
         Proyecto proyecto = sProyecto.getOne(id).get();
 
         proyecto.setNombreP(dtoproyecto.getNombreP());

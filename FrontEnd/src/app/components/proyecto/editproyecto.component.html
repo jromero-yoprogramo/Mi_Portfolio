@@ -1,42 +1,31 @@
 <div class="container " *ngIf="proyecto">
     <div class="row">
         <div>
-            <form [formGroup]="newForm" (ngSubmit)="uploadImage()" novalidate #f="ngForm">
+            <form (ngSubmit)="comprobar()" novalidate #f="ngForm">
                 <div class="form group">
-                    <label for="nombreP">Nombre del Proyecto</label>
-                    <input type="text" class="form-control" id="nombreP" name="nombreP" value={{proyecto.nombreP}}
-                        required>
+                    <label for="nombreP">Nombre</label>
+                    <input type="text" class="form-control" id="nombreP" value="" name="nombreP" [(ngModel)]="proyecto.nombreP" required>
                 </div>
                 <div class="form group">
-                    <label for="descripcionP">Descripcion del Proyecto</label>
-                    <input type="text" class="form-control" id="descripcionP" name="descripcionP"
-                        value={{proyecto.descripcionP}} required>
+                    <label for="descripcionP">Descripcion</label>
+                    <input type="text" class="form-control" id="descripcionP" name="descripcionP" [(ngModel)]="proyecto.descripcionP" required>
                 </div>
                 <div class="form group">
-                    <label for="imgP ">Imagen actual del Proyecto</label>
-                    <div class="form group">
+                    <label for="imgP ">Imagen actual del proyecto</label>
                     <img [src]="proyecto.imgP" width="200px">
-                    </div>
                 </div>
                 <div class="form group">
-                    <label for="imgP"></label>
-                   
-                    <input type="file" class="form group hidden" id="files" name="imgP" (change)="newImagenUpload($event)"
-                        formControlName="im" accept=".jpg, .jpeg, .png">
-                        <div class="form group">
-                            <label for="imgP">Nueva imagen del proyecto</label>
-                            <label for="files" class="files">Elegir nueva imagen del Proyecto</label>
-                        </div>
+                    <label for="imgP">Imagen nueva del proyecto</label>
+                    <input type="file" required class="form-control" id="imgP" name="imgP"  (change)="newImagenUpload($event)"
+                    accept=".jpg, .jpeg, .png">
                 </div>
-                
-                
                 <div class="imagen">
                     <img [src]="this.actImage" width="200px">
                 </div>
 
 
                 <br>
-                <button class="btn btn-primary" [disabled]="!newForm.valid || loading">
+                <button class="btn btn-primary" [disabled]="!disa || loading">
                     {{(loading) ? 'Actualizando Proyecto...' : 'Editar proyecto'}}
                 </button>
 
