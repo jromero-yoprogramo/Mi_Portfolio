@@ -13,7 +13,6 @@ div{
 
 
 .container{
-  
     
     background-color: #a1b5cb;
     min-height: 100%;
@@ -29,6 +28,20 @@ button{
     margin: 2%;
 }
 
+.btn-secondary{
+    margin-left: 2%;
+}
+
+.imagenact{
+    margin-left: 2%;
+}
+
+.tagsmall{
+    margin-left: 2%;
+}
+
+
+
 .hidden{
     display: none;
 }
@@ -43,4 +56,5 @@ button{
     border-radius: 10px; /*bordes redondos*/
     margin: 2%
 }
+
 

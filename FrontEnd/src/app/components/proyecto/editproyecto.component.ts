@@ -15,6 +15,7 @@ import { ProyectoService } from 'src/app/service/proyecto.service';
 })
 export class EditproyectoComponent implements OnInit {
 
+  
   loading: boolean;
   proyecto: Proyecto = null;
   url: string;
@@ -55,7 +56,7 @@ export class EditproyectoComponent implements OnInit {
     )
   }
 
-  
+
 
   onUpdate(): void {
     const id = this.activatedRouter.snapshot.params['id'];
@@ -181,5 +182,6 @@ export class EditproyectoComponent implements OnInit {
     )
   }
 
+  
 
 }
