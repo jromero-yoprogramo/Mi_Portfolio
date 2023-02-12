@@ -8,7 +8,8 @@
                 </div>
                 <div class="form group">
                     <label for="descripcionE">Descripcion de los estudios realizados</label>
-                    <input type="text" class="form-control" id="descripcionE" name="descripcionE" [(ngModel)]="educacion.descripcionE" required>
+                    <textarea type="text" display="flex" class="form-control" id="descripcionE" 
+                    name="descripcionE" [(ngModel)]="educacion.descripcionE" required maxlength="255"></textarea>
                 </div>
                 <button class="btn btn-primary">
                     Editar Educación!
