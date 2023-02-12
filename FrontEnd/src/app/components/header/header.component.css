@@ -1,4 +1,17 @@
-div {
-    background-color: #a1b5cb;
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+div {
+    background-color: #a1b5cb;
+    min-width: 100%;
+    width: auto;
+}
+
+
+
+
+
+   

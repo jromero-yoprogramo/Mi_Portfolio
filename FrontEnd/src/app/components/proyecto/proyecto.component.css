@@ -1,12 +1,16 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .row{
     padding: 20px;
     background: #a1b5cb;
+    min-width: 100%;
 }
 
-.contenedor{
-    width: auto;
-   
-}
+
 
 .parte1, .parte2{
     display: inline-block;
@@ -19,3 +23,4 @@
     box-shadow: 10px 10px 30px #000000;
     
 }
+

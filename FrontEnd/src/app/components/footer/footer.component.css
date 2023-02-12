@@ -1,5 +1,12 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .row{
     background: #a1b5cb;
+    
 }
 
 footer{
@@ -9,4 +16,9 @@ footer{
     flex-direction: column;
     text-align: center;
     box-shadow: 2px -2px 5px #999 ;
+}
+
+div{
+    min-width: 100%;
+    
 }
