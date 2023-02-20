@@ -1,7 +1,7 @@
 <div class="row">
 
     <h1>Hard & Soft Skills</h1>
-  <div class=" col-lg-2 col-md-2 col-sm-2">
+  <div class=" col-lg-12 col-md-12 col-sm-12">
     <button type="button" routerLink="/newskill" class="btn btn-primary" *ngIf="isLogged">Nueva Skill</button>
   </div>
 
@@ -10,15 +10,17 @@
         <circle-progress
         [percent]="(skill.porcentaje)"
         [radius]="70"
-        [showUnits]="false"
+        [showUnits]="true"
         [imageSrc]="''"
-        [title]="(skill.nombre)"
+        [subtitle]="(skill.nombre)"
         [titleColor]="'#212f3c'"
+        [subtitleFontSize]="'25'"
+        [subtitleColor]="'#2809d8'"
         [showTitle]="true"
         [showImage]="false"
         [imageHeight]="60"
         [imageWidth]="60"
-        [showSubtitle]="false"
+        [showSubtitle]="true"
         [outerStrokeWidth]="12"
         [innerStrokeWidth]="6"
         [outerStrokeColor]="'#2809d8'"
