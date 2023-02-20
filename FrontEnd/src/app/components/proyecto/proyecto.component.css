@@ -7,7 +7,7 @@
 .row{
     padding: 20px;
     background: #a1b5cb;
-    min-width: 100%;
+ 
 }
 
 
@@ -23,4 +23,16 @@
     box-shadow: 10px 10px 30px #000000;
     
 }
+
+
+
+@media(max-width: 575px){
+   
+    .table{
+        display: block;
+        overflow-x: auto;
+    }
+   
+}
+
 

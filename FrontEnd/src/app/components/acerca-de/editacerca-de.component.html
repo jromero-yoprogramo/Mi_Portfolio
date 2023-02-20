@@ -12,7 +12,8 @@
                 </div>
                 <div class="form group">
                     <label for="descripcion">Descripcion</label>
-                    <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="persona.descripcion" required>
+                    <textarea type="text" display="flex" class="form-control" id="descripcion" name="descripcion" 
+                    [(ngModel)]="persona.descripcion" required maxlength="255"></textarea>
                 </div> 
                 
                 <div class="form group">
@@ -21,17 +22,33 @@
                 </div>
 
                 <div class="form group">
+
+                    <label for="imgP">Debe elegir una nueva imagen para la persona:</label>
+
+                    <div>
+                    <input type="file" required class="form-control" id="imgP" name="imgP"
+                        (change)="newImagenUpload($event)" formControlName="im" accept=".jpg, .jpeg, .png" 
+                        onChange="document.getElementById('tagsmall').innerText=document.getElementById('imgP').files[0]['name'];"
+                        hidden >
+
+                    <label for="imgP" class="btn btn-secondary">Seleccionar imagen</label>
+                    <small class="tagsmall" id='tagsmall'>No se ha seleccionado imagen</small>
+                    </div>
+                </div>
+
+
+                <div class="form group">
                     <label for="img">Imagen nueva de la persona</label>
-                    <input type="file" class="form-control" id="img" name="img" (change)="newImagenUpload($event)"
-                    accept=".jpg, .jpeg, .png">
+                   
                 </div>
                 <div class="imagen">
+                    
                     <img [src]="this.actImage" width="200px"/>
                 </div>
 
 
                 <br>
-                <button class="btn btn-primary" [disabled]="loading">
+                <button class="btn btn-primary" [disabled]="!disa ||loading">
                     {{(loading) ? 'Editando persona...' : 'Editar persona'}}
                 </button>
 

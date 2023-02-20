@@ -1,14 +1,14 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 :root {
     display: flex;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: blue;
- 
-}
+
 
 div{
     padding-left: 2%;
@@ -21,7 +21,7 @@ div{
 .container{
     
     background-color: #a1b5cb;
-    min-height: 100%;
+    min-height: 100vh;
     min-width: 100%;
 }
 

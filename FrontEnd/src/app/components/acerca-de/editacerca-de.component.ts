@@ -20,6 +20,7 @@ export class EditacercaDeComponent implements OnInit{
   actFile: any;
   actImage:string = "";
   persona: persona = null;
+  disa:boolean;
 
   constructor(private activatedRouter: ActivatedRoute, private personaService: PersonaService,
      private router: Router,
@@ -63,7 +64,7 @@ export class EditacercaDeComponent implements OnInit{
       reader.readAsDataURL($event.target.files[0]);
     }
     console.log(this.actFile)
-
+    this.disa = true;
   }
 
 
