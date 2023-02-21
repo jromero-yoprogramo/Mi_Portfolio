@@ -5,7 +5,9 @@
     
 }
 
-
+h1{
+    color:#4756df;
+}
 
 .row{
     padding: 20px;
@@ -42,6 +44,7 @@ div{
     /*etiqueta nombre*/
     #nombre {
     font-weight: bold;
+    font-size: 20px;
     margin-top: 30%;
    
     }

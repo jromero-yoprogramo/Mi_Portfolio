@@ -15,7 +15,14 @@ div{
     background: #a1b5cb;
 }
 
-h1, h3{
+h1{
+    color:#4756df;
+    display: inline;
+}
+h2{
+    font-size: 25px;
+}
+h3{
     display: inline;
 }
 
