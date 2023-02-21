@@ -27,6 +27,7 @@ import { NewSkillComponent } from './components/hyss/new-skill.component';
 import { EditacercaDeComponent } from './components/acerca-de/editacerca-de.component';
 import { NewproyectoComponent } from './components/proyecto/newproyecto.component';
 import { EditproyectoComponent } from './components/proyecto/editproyecto.component';
+import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { EditproyectoComponent } from './components/proyecto/editproyecto.compon
     EditacercaDeComponent,
     NewproyectoComponent,
     EditproyectoComponent,
+    ScrollToTopComponent,
   ],
 
   imports: [
