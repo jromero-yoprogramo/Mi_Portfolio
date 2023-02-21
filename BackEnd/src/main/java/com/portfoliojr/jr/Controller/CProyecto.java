@@ -27,7 +27,7 @@ public class CProyecto {
     @Autowired
     SProyecto sProyecto;
 
-    @GetMapping("/lista")
+    @GetMapping("/listaaa")
     public ResponseEntity<List<Proyecto>> list() {
         List<Proyecto> list = sProyecto.list();
         return new ResponseEntity(list, HttpStatus.OK);
