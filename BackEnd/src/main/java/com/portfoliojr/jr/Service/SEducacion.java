@@ -3,6 +3,7 @@ package com.portfoliojr.jr.Service;
 
 import com.portfoliojr.jr.Entity.Educacion;
 import com.portfoliojr.jr.Repository.REducacion;
+//import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;

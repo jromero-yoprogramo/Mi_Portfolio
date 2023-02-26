@@ -1,11 +1,12 @@
 
 package com.portfoliojr.jr.Dto;
 
+//import jakarta.validation.constraints.NotBlank;
 import javax.validation.constraints.NotBlank;
 
 
 public class dtoProyecto {
-     @NotBlank
+    @NotBlank
     private String nombreP;
     @NotBlank
     private String descripcionP;

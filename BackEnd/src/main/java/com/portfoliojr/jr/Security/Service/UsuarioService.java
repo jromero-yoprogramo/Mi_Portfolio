@@ -2,6 +2,7 @@ package com.portfoliojr.jr.Security.Service;
 
 import com.portfoliojr.jr.Security.Entity.Usuario;
 import com.portfoliojr.jr.Security.Repository.iUsuarioRepository;
+//import jakarta.transaction.Transactional;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

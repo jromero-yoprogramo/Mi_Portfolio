@@ -9,6 +9,7 @@ import com.portfoliojr.jr.Security.Enums.RolNombre;
 import com.portfoliojr.jr.Security.Service.RolService;
 import com.portfoliojr.jr.Security.Service.UsuarioService;
 import com.portfoliojr.jr.Security.jwt.JwtProvider;
+//import jakarta.validation.Valid;
 import java.util.HashSet;
 import java.util.Set;
 import javax.validation.Valid;

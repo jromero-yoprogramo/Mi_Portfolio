@@ -3,6 +3,7 @@ package com.portfoliojr.jr.Service;
 
 import com.portfoliojr.jr.Entity.Proyecto;
 import com.portfoliojr.jr.Repository.RProyecto;
+//import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
