@@ -2,10 +2,10 @@ package com.portfoliojr.jr.Service;
 
 import com.portfoliojr.jr.Entity.Persona;
 import com.portfoliojr.jr.Repository.IPersonaRepository;
-//import jakarta.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
-import javax.transaction.Transactional;
+//import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

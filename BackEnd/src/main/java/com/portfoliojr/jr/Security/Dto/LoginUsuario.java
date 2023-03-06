@@ -1,7 +1,7 @@
 package com.portfoliojr.jr.Security.Dto;
 
-//import jakarta.validation.constraints.NotBlank;
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
+//import javax.validation.constraints.NotBlank;
 
 
 public class LoginUsuario {
