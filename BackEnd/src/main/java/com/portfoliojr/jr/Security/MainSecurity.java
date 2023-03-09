@@ -83,9 +83,10 @@ public class MainSecurity {
 //    }
 
 //    @Override
-    @Bean
-    
-    protected void confi(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsServiceImpl).passwordEncoder(passwordEncoder());
-    } 
+//    @Bean
+//    
+//    protected void confi(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.userDetailsService(userDetailsServiceImpl).passwordEncoder(passwordEncoder());
+//    } 
+
 }
