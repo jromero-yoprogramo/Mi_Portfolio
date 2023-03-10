@@ -8,7 +8,7 @@ import { Skill } from '../model/skill';
 })
 export class SkillService {
   //URL = "http://localhost:8080/skill/";
-  URL = "backend-production-cfb6.up.railway.app/skill/";
+  URL = "https://backend-production-aad7.up.railway.app/skill/";
 
   constructor(private httpClient: HttpClient) { }
 
