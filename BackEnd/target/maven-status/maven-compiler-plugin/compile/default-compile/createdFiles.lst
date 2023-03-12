@@ -33,6 +33,7 @@ com\portfoliojr\jr\Security\Dto\LoginUsuario.class
 com\portfoliojr\jr\Security\Repository\iRolRepository.class
 com\portfoliojr\jr\Entity\Proyecto.class
 com\portfoliojr\jr\Dto\dtoExperiencia.class
+com\portfoliojr\jr\WebConfig.class
 com\portfoliojr\jr\Dto\dtoPersona.class
 com\portfoliojr\jr\Service\SProyecto.class
 com\portfoliojr\jr\Controller\CHys.class
