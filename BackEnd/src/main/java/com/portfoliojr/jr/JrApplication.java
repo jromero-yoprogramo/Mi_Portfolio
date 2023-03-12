@@ -12,8 +12,9 @@ import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServic
 //@SpringBootApplication
 public class JrApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		SpringApplication.run(JrApplication.class, args);
+                Thread.currentThread().join();
 	}      
         
 //        @Bean(name = "mvcHandlerMappingIntrospector")
