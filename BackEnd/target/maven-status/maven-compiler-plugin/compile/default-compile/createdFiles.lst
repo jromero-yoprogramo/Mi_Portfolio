@@ -29,6 +29,7 @@ com\portfoliojr\jr\Repository\REducacion.class
 com\portfoliojr\jr\Service\SEducacion.class
 com\portfoliojr\jr\Service\ImpPersonaService.class
 com\portfoliojr\jr\Entity\Persona.class
+com\portfoliojr\jr\JrApplication$1.class
 com\portfoliojr\jr\Security\Dto\LoginUsuario.class
 com\portfoliojr\jr\Security\Repository\iRolRepository.class
 com\portfoliojr\jr\Entity\Proyecto.class
