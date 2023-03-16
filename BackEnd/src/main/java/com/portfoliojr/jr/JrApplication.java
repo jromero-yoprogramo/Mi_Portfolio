@@ -3,9 +3,10 @@ package com.portfoliojr.jr;
 //import java.util.HashSet;
 //import java.util.Set;
 //import java.util.concurrent.ScheduledFuture;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-//import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 //import org.springframework.scheduling.Trigger;
 //import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
@@ -13,10 +14,11 @@ import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServic
 //import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 
 @EnableAutoConfiguration(exclude = {UserDetailsServiceAutoConfiguration.class})
-//@SpringBootApplication
+@SpringBootApplication 
 public class JrApplication {
 
     public static void main(String[] args) {
+       
         SpringApplication.run(JrApplication.class, args);
 
     }
