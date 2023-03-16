@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 //import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
+import static org.springframework.security.config.Customizer.withDefaults;
 //import static org.springframework.security.config.Customizer.withDefaults;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -16,6 +17,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 //import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 //import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -25,7 +27,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 //public class MainSecurity extends WebSecurityConfigurerAdapter{
 public class MainSecurity {
     @Autowired
-    JwtEntryPoint jwtEntryPoint;
+//    JwtEntryPoint jwtEntryPoint;
     
     @Bean
     public JwtTokenFilter jwtTokenFilter(){
@@ -39,27 +41,27 @@ public class MainSecurity {
 
 //    @Override
     @Bean
-    protected void confi(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
-//              .authorizeRequests()
-                .authorizeHttpRequests()
-//              .antMatchers("**").permitAll()
-                .requestMatchers("**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .exceptionHandling().authenticationEntryPoint(jwtEntryPoint)
-                .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
-    }
-//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http
-//            .authorizeHttpRequests((authz) -> authz
+//    protected void confi(HttpSecurity http) throws Exception {
+//        http.cors().and().csrf().disable()
+////              .authorizeRequests()
+//                .authorizeHttpRequests()
+////              .antMatchers("**").permitAll()
+//                .requestMatchers("**").permitAll()
 //                .anyRequest().authenticated()
-//            )
-//            .httpBasic(withDefaults());
-//        return http.build();
+//                .and()
+//                .exceptionHandling().authenticationEntryPoint(jwtEntryPoint)
+//                .and()
+//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//        http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 //    }
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests((authz) -> authz
+                .anyRequest().authenticated()
+            )
+            .httpBasic(withDefaults());
+        return http.build();
+    }
 
 //    @Override
     @Bean
