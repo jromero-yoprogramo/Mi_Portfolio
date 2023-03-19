@@ -19,7 +19,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 public class JrApplication {
 
     public static void main(String[] args) {
-
+        System.setProperty("spring.devtools.restart.enabled", "false");
         SpringApplication.run(JrApplication.class, args);
 
     }
