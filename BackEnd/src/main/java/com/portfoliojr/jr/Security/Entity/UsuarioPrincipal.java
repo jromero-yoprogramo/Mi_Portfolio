@@ -4,6 +4,7 @@
  */
 package com.portfoliojr.jr.Security.Entity;
 
+
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,6 +16,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  *
  * @author jromero
  */
+
 public class UsuarioPrincipal implements UserDetails {
 
     private final String nombre;

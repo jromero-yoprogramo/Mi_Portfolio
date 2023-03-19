@@ -2,12 +2,15 @@ package com.portfoliojr.jr;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.web.WebAppConfiguration;
 
-@SpringBootTest(classes = JrApplicationTests.class )
-class JrApplicationTests {
+@WebAppConfiguration
+@SpringBootTest(classes = JrApplicationTests.class)
 
-	@Test
-	void contextLoads() {
-	}
+public class JrApplicationTests {
+
+    @Test
+    public void contextLoads() {
+    }
 
 }
